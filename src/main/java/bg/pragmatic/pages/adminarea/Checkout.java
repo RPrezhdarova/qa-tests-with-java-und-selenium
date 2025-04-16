@@ -39,7 +39,7 @@ public class Checkout extends BaseActions {
      */
     public static void fillShippingAddress(String adress1, String postCode, String city, String country, String region) {
         type(ADRESS1_FIELD, adress1);
-        scrollDownThePage();
+        scrollToElement(COUNTRY_SELECT);
         selectOption(COUNTRY_SELECT, country);
         type(CITY_FIELD, city);
         type(POSTCODE_FIELD, postCode);
@@ -50,6 +50,7 @@ public class Checkout extends BaseActions {
      * Clicks the "Continue" button to save the guest account.
      */
     public static void clickOnContinueButton() {
+        scrollToElement(CONTINUE_BUTTON);
         click(CONTINUE_BUTTON);
     }
 

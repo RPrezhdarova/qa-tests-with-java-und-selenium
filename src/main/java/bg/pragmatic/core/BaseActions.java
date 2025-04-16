@@ -4,6 +4,7 @@ import bg.pragmatic.utils.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -72,16 +73,8 @@ public class BaseActions {
     /**
      * Scrolls down to the bottom of the page and waits until the scrolling is completed.
      */
-    protected static void scrollDownThePage(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(driver -> {
-            long totalHeight = (Long) js.executeScript("return document.body.scrollHeight;");
-            long currentPosition = (Long) js.executeScript("return window.pageYOffset + window.innerHeight;");
-            return currentPosition >= totalHeight;
-        });
+    protected static void  scrollToElement(By element){
+        new Actions(driver).scrollToElement(driver.findElement(element)).perform();
     }
 
     /**

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,9 +18,7 @@ import static bg.pragmatic.utils.Browser.driver;
 
 public class SearchedProduct extends BaseActions {
     private static final By SEARCHED_ELEMENTS = By.xpath("//div[@class='content']//h4/a");
-    private static final By ADD_TO_CARD_BUTTON = By.xpath("//h4/a[text()='Palm Treo Pro']/ancestor::div[contains(@class, 'product-thumb')]//button[@type='submit'][1]");
     private static final By MASSAGE_SUCCESSFUL_ADD_TO_CARD = By.xpath("//*[@id=\"alert\"]//div[@class='alert alert-success alert-dismissible']");
-    private static final By SHOPING_CARD_BUTTON = By.xpath("//button[@class='btn btn-lg btn-inverse btn-block dropdown-toggle']");
     private static final By SHOPING_CARD_ALERT_LINK = By.xpath("//div[@id=\"alert\"]//div[@class='alert alert-success alert-dismissible']//a[text()='shopping cart']");
     /**
      * Verifies whether a product with the specified name is visible in the search results.
@@ -31,11 +30,13 @@ public class SearchedProduct extends BaseActions {
     }
 
     /**
-     * Scrolls the page down and clicks the "Add to Cart" button for the specified product.
+     * Scrolls to and clicks the "Add to Cart" button for the specified product.
      */
     public static void addToShoppingCard(String productName) {
-        scrollDownThePage();
-        click(ADD_TO_CARD_BUTTON);
+
+        By dynamicAddToCartButton = By.xpath("//h4/a[text()='" + productName + "']/ancestor::div[contains(@class, 'product-thumb')]//button[@type='submit'][1]");
+        scrollToElement(dynamicAddToCartButton);
+        click(dynamicAddToCartButton);
     }
 
     /**

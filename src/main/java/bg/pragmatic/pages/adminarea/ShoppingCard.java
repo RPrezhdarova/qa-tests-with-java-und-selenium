@@ -20,7 +20,7 @@ public class ShoppingCard extends BaseActions {
 
 /** Clicks the checkout button */
     public static void clickOnCheckoutButton() {
-        scrollDownThePage();
+        scrollToElement(CHECKOUT_BUTTON);
         click(CHECKOUT_BUTTON);
     }
 }
