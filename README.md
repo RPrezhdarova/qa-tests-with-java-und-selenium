@@ -63,8 +63,8 @@ Simulates a guest user journey:
 
 ✅ AddProductToExistingOrder()
 Simulates an admin user:
-- Logs into backend with admin/parola123!
-- Filters order by ID 98
+- Logs into backend with username and password
+- Filters order by ID
 - Verifies customer name and presence
 
 ---
