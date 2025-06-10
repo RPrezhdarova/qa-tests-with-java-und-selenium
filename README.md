@@ -51,6 +51,7 @@ Or inside IntelliJ:
 ---
 
 🧪 Test Scenarios
+
 ✅ findProductAndAddItToCard()
 Simulates a guest user journey:
 
@@ -66,6 +67,7 @@ Simulates an admin user:
 - Filters order by ID 98
 - Verifies customer name and presence
 
+---
 
 🧰 Tools Used
 
