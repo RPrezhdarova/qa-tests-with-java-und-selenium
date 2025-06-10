@@ -15,7 +15,7 @@ public class OrderProductSuccessfullyTests extends BaseTest {
     String productName="Palm Treo Pro";
 
     @Test
-    public void placeOrderSuccessfully(){
+    public void findProductAndAddItToCard(){
 
         HomePage.open();
         HomePage.searchProduct(productName);
@@ -30,20 +30,6 @@ public class OrderProductSuccessfullyTests extends BaseTest {
         Checkout.fillShippingAddress("LiegnitzerStr", "85435", "Erding", "Germany", "Bayern");
         Checkout.clickOnContinueButton();
         Checkout.verifyMessage("Success: Your guest account information has been saved!");
-
-
-        //to be continue....
-
-        /* Checkout.verifyProductDetails();
-       Checkout.agreePrivacyPolicy();
-        Checkout.clickOnContinue();
-        Checkout.chooseShippingMethod();
-        CheckOut.ChoosePaymentMethod();
-        Checkout.clickConfirmOrderButton();
-        ConfirmationOrder.verifyConfirmationText("Your order has been placed!");
-        ConfirmationOrder.clickOnContinueButton();
-        HomePage.verifyHomePageVisibility();
-        */
     }
 
     @Test
@@ -60,25 +46,5 @@ public class OrderProductSuccessfullyTests extends BaseTest {
             AdminNavbar.orders();
             Orders.filterOrderByID("98");
             Orders.verifyOrderIsVisible("Rositsa Prezhdarova");
-
-            //to be continue.. -> Add product
-
-            /* Orders.viewOrder();
-            Order.clickAddProductButton();
-            AddItem.chooseProduct();
-            AddItem.fillProductQuantity("2");
-            AddItem.chooseRadio();
-            AddItem.selectCheckbox();
-            AddItem.fillText("test");
-            AddItem.selectFromDropDown();
-            AddItem.fillTextArea("testArea");
-            AddItem.uploadFile();
-            AddItem.acceptAllertMessage();
-            AddItem.clickSaveButton();
-            AddItem.verifyMessage("SuccessfullyModifiedTheProduct");
-            AddItem.closeWindow();
-            Order.verifyTheAddedProduct();
-            */
-
         }
     }
